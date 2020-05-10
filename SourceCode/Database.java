@@ -85,6 +85,29 @@ public class Database{
 		writeSalesCards();
 	}
 
+	static PriorityQueue<UnionCharges> chargesSorted = new PriorityQueue<UnionCharges>(100);
+
+	static void writeUnionCharges()
+	{
+		Gson gson = new Gson();
+        String json = gson.toJson(chargesSorted);
+        try
+        {
+            FileWriter file = new FileWriter("UnionCharges.json");
+            file.write(json);
+            file.close();
+        }
+        catch (IOException e) 
+        {
+             e.printStackTrace();
+        }
+	}
+
+	static void addCharges(UnionCharges charges)
+	{
+		chargesSorted.add(charges);
+		writeUnionCharges();
+	}
 
 
 }
