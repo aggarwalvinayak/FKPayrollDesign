@@ -7,7 +7,7 @@ public class SalesCard implements Comparable<TimeCard>{
 	LocalDate date;
 	double saleAmount;
 
-	public TimeCard(int empId,LocalDate date, Double amount)
+	public SalesCard(int empId,LocalDate date, Double amount)
 	{
 		cardId=lastid+1;
 		lastid+=cardId;

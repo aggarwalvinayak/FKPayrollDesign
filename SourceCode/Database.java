@@ -61,6 +61,30 @@ public class Database{
 		writeTimeCards();
 	}
 
+	static PriorityQueue<SalesCard> salesSorted = new PriorityQueue<SalesCard>(100);
+
+	static void writeSalesCards()
+	{
+		Gson gson = new Gson();
+        String json = gson.toJson(salesSorted);
+        try
+        {
+            FileWriter file = new FileWriter("SalesReceipt.json");
+            file.write(json);
+            file.close();
+        }
+        catch (IOException e) 
+        {
+             e.printStackTrace();
+        }
+	}
+
+	static void addReceipt(SalesCard receipt)
+	{
+		salesSorted.add(receipt);
+		writeSalesCards();
+	}
+
 
 
 }
