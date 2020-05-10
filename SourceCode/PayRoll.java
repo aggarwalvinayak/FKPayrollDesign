@@ -3,7 +3,7 @@ import java.util.*;
 
 public class PayRoll
 {
-	static LocalDate lastDate;
+	static LocalDate lastDate=LocalDate.of(2020, 01, 01);;
 	static LocalDate currentRun;
 	static void payTimeCards()
 	{
@@ -49,7 +49,8 @@ public class PayRoll
 	}
 	static void run(LocalDate date)
 	{
-		while(lastDate.isBefore(date))
+
+		while(lastDate==null || lastDate.isBefore(date))
 		{
 			currentRun=lastDate.plusDays(1);
 			payTimeCards();
