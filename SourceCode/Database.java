@@ -37,7 +37,29 @@ public class Database{
 		writeEmployee();        
 	}
 
+	static PriorityQueue<TimeCard> cardsSorted = new PriorityQueue<TimeCard>(100);
 
+	static void writeTimeCards()
+	{
+		Gson gson = new Gson();
+        String json = gson.toJson(cardsSorted);
+        try
+        {
+            FileWriter file = new FileWriter("TimeCards.json");
+            file.write(json);
+            file.close();
+        }
+        catch (IOException e) 
+        {
+             e.printStackTrace();
+        }
+	}
+
+	static void addCard(TimeCard card)
+	{
+		cardsSorted.add(card);
+		writeTimeCards();
+	}
 
 
 

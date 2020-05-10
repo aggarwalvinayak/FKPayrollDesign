@@ -1,5 +1,7 @@
+import java.time.LocalDate;  
+
 public class TimeCard implements Comparable<TimeCard>{
-	static lastid=0;
+	static int lastid=0;
 	int cardId;
 	int empId;
 	LocalDate date;
@@ -9,7 +11,7 @@ public class TimeCard implements Comparable<TimeCard>{
 	{
 		cardId=lastid+1;
 		lastid+=cardId;
-		this.empId=empID;
+		this.empId=empId;
 		this.date=date;
 		this.hours=hours;
 	}
@@ -18,7 +20,7 @@ public class TimeCard implements Comparable<TimeCard>{
     public int compareTo(TimeCard card) {
         int dateOrder = date.compareTo(card.date);
 	    if (dateOrder != 0) return dateOrder;
-	    int idOrder = cardId.compareTo(card.cardId);
+	    int idOrder = cardId-card.cardId;
 	    if (idOrder != 0) return idOrder;
 	    return 0;
     }
