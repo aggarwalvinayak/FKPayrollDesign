@@ -2,6 +2,7 @@ import java.time.LocalDate;
 
 public abstract class Employee implements EmployeeInterface
 {
+	static int lastID=0;
 	int empID;
 	String name;
 	String address;
@@ -12,9 +13,12 @@ public abstract class Employee implements EmployeeInterface
 	int methodOfPayment;
 	LocalDate payDay;
 	int payCycle;
-	Employee(int id,String name,String address,int union,double unionWeeklyCharge,int methodOfPayment, LocalDate date,int cycle)
+	double rate;
+	double salary;
+	Employee(String name,String address,int union,double unionWeeklyCharge,int methodOfPayment, LocalDate date,int cycle,double rate,double salary)
 	{
-		empID=id;
+		empID=lastID+1;
+		lastID+=1;
 		this.name=name;
 		this.address=address;
 		isUnion=union;
@@ -24,6 +28,8 @@ public abstract class Employee implements EmployeeInterface
 		this.methodOfPayment=methodOfPayment;
 		payDay=date;
 		payCycle=cycle;
+		this.rate=rate;	
+		this.salary=salary;
 	}
 
 	public boolean isPayDay(LocalDate date)

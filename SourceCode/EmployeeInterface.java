@@ -8,5 +8,7 @@ public interface EmployeeInterface
 	void deductUnionWeek();
 	void creditPay(double pay);
 	void addDeductions(double deduct);
-
+	void postCard(double hours);
+	default void paySalary(){this.creditPay(0);}
+	
 }
