@@ -1,6 +1,6 @@
 import java.time.LocalDate;  
 
-public class SalesCard implements Comparable<TimeCard>{
+public class SalesCard implements Comparable<SalesCard>{
 	static int lastid=0;
 	int cardId;
 	int empId;
@@ -10,14 +10,14 @@ public class SalesCard implements Comparable<TimeCard>{
 	public SalesCard(int empId,LocalDate date, Double amount)
 	{
 		cardId=lastid+1;
-		lastid+=cardId;
+		lastid=cardId;
 		this.empId=empId;
 		this.date=date;
 		this.saleAmount=amount;
 	}
 
 	@Override
-    public int compareTo(TimeCard card) {
+    public int compareTo(SalesCard card) {
         int dateOrder = date.compareTo(card.date);
 	    if (dateOrder != 0) return dateOrder;
 	    int idOrder = cardId-card.cardId;

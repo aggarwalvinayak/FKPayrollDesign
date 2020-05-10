@@ -10,7 +10,7 @@ public class TimeCard implements Comparable<TimeCard>{
 	public TimeCard(int empId,LocalDate date, Double hours)
 	{
 		cardId=lastid+1;
-		lastid+=cardId;
+		lastid=cardId;
 		this.empId=empId;
 		this.date=date;
 		this.hours=hours;
